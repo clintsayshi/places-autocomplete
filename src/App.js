@@ -6,6 +6,9 @@ function App() {
   const [address, setAddress] = useState({});
 
   const addressParts = address.results[0].address_components;
+
+  console.log(address);
+
   return (
     <main>
       <Search setAddress={setAddress} />
