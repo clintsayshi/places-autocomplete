@@ -1,24 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+
+import Search from "./Search";
 
 function App() {
+  const [address, setAddress] = useState({});
+
+  const addressParts = address.results[0].address_components;
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <main>
+      <Search setAddress={setAddress} />
+
+      <div>
+        {addressParts.map((item, index) => (
+          <div key={index}>
+            <p>Long name:: {item.long_name}</p>
+            <p>Short name:: {item.short_name}</p>
+            <p>Type of address component:: {item.types}</p>
+            <hr />
+          </div>
+        ))}
+      </div>
+    </main>
   );
 }
 
