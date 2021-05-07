@@ -2,11 +2,7 @@ import React, { useState, useEffect } from "react";
 import usePlacesAutocomplete from "use-places-autocomplete";
 
 export default function Search({ setAddress }) {
-  const [address, setAddress] = useState({});
-
-  useEffect(() => {
-    // UPDATE THE STATE HERE LIKE YOU DID IN THE componentDidAmount()
-  }, address);
+  //const [address, setAddress] = useState({});
 
   const {
     ready,
@@ -32,10 +28,13 @@ export default function Search({ setAddress }) {
     setValue(description, false);
     clearSuggestions();
     console.log(description);
-    const rl = `https://maps.googleapis.com/maps/api/geocode/json?address=${description}&key=`;
+    const rl = `https://maps.googleapis.com/maps/api/geocode/json?address=${description}&key=AIzaSyDbdbJqR7UuqQPm9xqO52W_fd9GfDFSpIk`;
     fetch(rl)
       .then((res) => res.json())
-      .then((data) => setAddress(data))
+      .then((data) => {
+        setAddress(data);
+        console.log(data);
+      })
       .catch((err) => console.log(err));
   };
 

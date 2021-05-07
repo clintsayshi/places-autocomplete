@@ -14,14 +14,14 @@ function App() {
       <Search setAddress={setAddress} />
 
       <div>
-        {addressParts.map((item, index) => (
+        {/* {addressParts.map((item, index) => (
           <div key={index}>
             <p>Long name:: {item.long_name}</p>
             <p>Short name:: {item.short_name}</p>
             <p>Type of address component:: {item.types}</p>
             <hr />
           </div>
-        ))}
+        ))} */}
       </div>
     </main>
   );
